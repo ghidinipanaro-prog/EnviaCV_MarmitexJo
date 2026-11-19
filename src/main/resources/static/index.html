@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marmitex da Jô - Trabalhe Conosco</title>
+    <!-- Fontes do Google para dar um toque gastronômico e acolhedor -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+
+        :root {
+            --laranja-principal: #ea580c;
+            --laranja-escuro: #c2410c;
+            --laranja-claro: #fff7ed;
+            --laranja-borda: #fed7aa;
+            --branco: #ffffff;
+            --texto-escuro: #292524;
+            --texto-suave: #57534e;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+            background-color: var(--laranja-claro);
+            /* Textura sutil de pontinhos que remete a toalha/cardápio artesanal */
+            background-image: radial-gradient(#fdba74 0.85px, transparent 0.85px);
+            background-size: 20px 20px;
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+            color: var(--branco);
+            padding: 44px 16px 64px;
+            text-align: center;
+            border-bottom: 5px solid #9a3412;
+            box-shadow: 0 4px 15px rgba(234, 88, 12, 0.25);
+        }
+
+        .badge-restaurante {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        header h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 2.3rem;
+            margin: 0 0 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        header p {
+            margin: 0 auto;
+            max-width: 580px;
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        main {
+            max-width: 660px;
+            margin: -36px auto 32px;
+            padding: 0 16px;
+        }
+
+        form {
+            background: var(--branco);
+            padding: 32px;
+            border-radius: 16px;
+            border-top: 6px solid var(--laranja-principal);
+            box-shadow: 0 10px 25px rgba(154, 52, 18, 0.08);
+        }
+
+        .form-titulo {
+            margin: 0 0 20px;
+            padding-bottom: 14px;
+            border-bottom: 2px dashed var(--laranja-borda);
+            color: var(--laranja-escuro);
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.35rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 6px;
+            font-weight: 600;
+            color: var(--texto-escuro);
+            font-size: 0.95rem;
+        }
+
+        .opcional {
+            font-weight: 400;
+            color: var(--texto-suave);
+            font-size: 0.85em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 1rem;
+            border: 1.5px solid #e7e5e4;
+            border-radius: 8px;
+            font-family: inherit;
+            background-color: #fafaf9;
+            transition: all 0.2s ease;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            background-color: var(--branco);
+            border-color: var(--laranja-principal);
+            box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.15);
+        }
+
+        /* Estilo especial para o campo de anexo de currículo */
+        input[type="file"] {
+            width: 100%;
+            padding: 14px;
+            background: var(--laranja-claro);
+            border: 2px dashed #fb923c;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            color: var(--texto-escuro);
+        }
+
+        input[type="file"]::file-selector-button {
+            background: var(--laranja-principal);
+            color: var(--branco);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-right: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background: var(--laranja-escuro);
+        }
+
+        .dica {
+            font-size: 0.85em;
+            color: var(--texto-suave);
+            margin-top: 6px;
+        }
+
+        .checkbox-lgpd {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-weight: 400;
+            margin-top: 22px;
+            padding: 14px;
+            background: #fafaf9;
+            border-radius: 8px;
+            border: 1px solid #e7e5e4;
+            font-size: 0.9rem;
+            color: var(--texto-suave);
+            cursor: pointer;
+        }
+
+        .checkbox-lgpd input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: var(--laranja-principal);
+            cursor: pointer;
+        }
+
+        button {
+            margin-top: 26px;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--branco);
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            border: 0;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(234, 88, 12, 0.38);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #fdba74;
+            cursor: wait;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .mensagem {
+            display: none;
+            margin-bottom: 20px;
+            padding: 16px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .mensagem.sucesso {
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+            color: #065f46;
+        }
+
+        .mensagem.erro {
+            background: #fef2f2;
+            border: 1px solid #ef4444;
+            color: #991b1b;
+        }
+
+        .mensagem ul {
+            margin: 8px 0 0;
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85em;
+            color: var(--texto-suave);
+            padding: 0 16px 36px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.85rem; }
+            form { padding: 22px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="badge-restaurante">🍲 Trabalhe Conosco</div>
+    <h1>Marmitex da Jô</h1>
+    <p>Venha fazer parte da nossa cozinha! Preencha seus dados abaixo, escolha a vaga desejada e anexe seu currículo em PDF.</p>
+</header>
+
+<main>
+    <div id="mensagem" class="mensagem" role="alert"></div>
+
+    <form id="formCandidatura" novalidate>
+        <h2 class="form-titulo">📋 Ficha de Candidatura</h2>
+
+        <label for="nomeCompleto">Nome completo</label>
+        <input type="text" id="nomeCompleto" name="nomeCompleto" maxlength="150" placeholder="Ex: Maria da Silva" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" maxlength="180" placeholder="seuemail@exemplo.com" required>
+
+        <label for="telefone">Telefone / WhatsApp</label>
+        <input type="tel" id="telefone" name="telefone" maxlength="30" placeholder="(11) 99999-9999" required>
+
+        <label for="vagaPretendida">Vaga pretendida</label>
+        <select id="vagaPretendida" name="vagaPretendida" required>
+            <option value="">Selecione uma vaga</option>
+            <option>Atendente</option>
+            <option>Auxiliar de Cozinha</option>
+            <option>Gerente</option>
+            <option>Cozinheira</option>
+        </select>
+
+        <label for="linkedin">LinkedIn <span class="opcional">(opcional)</span></label>
+        <input type="url" id="linkedin" name="linkedin" maxlength="255" placeholder="https://linkedin.com/in/seu-perfil">
+
+        <label for="apresentacao">Apresentação <span class="opcional">(opcional)</span></label>
+        <textarea id="apresentacao" name="apresentacao" placeholder="Conte um pouco sobre sua experiência na área de alimentação ou atendimento..."></textarea>
+
+        <label for="curriculo">Currículo em PDF</label>
+        <input type="file" id="curriculo" name="curriculo" accept=".pdf,application/pdf" required>
+        <div class="dica">📎 Somente arquivos PDF, com no máximo 5 MB.</div>
+
+        <label class="checkbox-lgpd" for="consentimento">
+            <input type="checkbox" id="consentimento">
+            <span>Autorizo o uso dos meus dados e do meu currículo apenas para fins de seleção de pessoal na <strong>Marmitex da Jô</strong>, conforme a LGPD (Lei nº 13.709/2018).</span>
+        </label>
+
+        <button type="submit" id="botaoEnviar">Enviar Candidatura</button>
+    </form>
+</main>
+
+<footer>
+    <strong>Marmitex da Jô</strong> • Comida caseira feita com carinho.<br>
+    Os dados informados são usados exclusivamente para processos seletivos, conforme a LGPD.
+</footer>
+
+<script>
+    const form = document.getElementById('formCandidatura');
+    const caixa = document.getElementById('mensagem');
+    const botao = document.getElementById('botaoEnviar');
+    const TAMANHO_MAXIMO = 5 * 1024 * 1024;
+
+    function mostrar(tipo, titulo, lista) {
+        caixa.className = 'mensagem ' + tipo;
+        caixa.innerHTML = '<strong></strong>';
+        caixa.firstChild.textContent = titulo;
+
+        if (lista && lista.length) {
+            const ul = document.createElement('ul');
+            lista.forEach(function (texto) {
+                const li = document.createElement('li');
+                li.textContent = texto;
+                ul.appendChild(li);
+            });
+            caixa.appendChild(ul);
+        }
+
+        caixa.style.display = 'block';
+        caixa.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    // Validação no navegador (conforto para o usuário).
+    // A validação que vale de fato é a do servidor.
+    function validarLocal() {
+        const erros = [];
+        const dados = new FormData(form);
+
+        if (!dados.get('nomeCompleto').trim()) erros.push('Informe o nome completo.');
+        if (!dados.get('email').trim()) erros.push('Informe o e-mail.');
+        if (!dados.get('telefone').trim()) erros.push('Informe o telefone.');
+        if (!dados.get('vagaPretendida')) erros.push('Selecione a vaga pretendida.');
+
+        const arquivo = dados.get('curriculo');
+        if (!arquivo || arquivo.size === 0) {
+            erros.push('Anexe o currículo em PDF.');
+        } else if (!arquivo.name.toLowerCase().endsWith('.pdf')) {
+            erros.push('O currículo deve estar no formato PDF.');
+        } else if (arquivo.size > TAMANHO_MAXIMO) {
+            erros.push('O currículo deve ter no máximo 5 MB.');
+        }
+        if (!document.getElementById('consentimento').checked) {
+            erros.push('É necessário autorizar o uso dos dados (LGPD).');
+        }
+        return erros;
+    }
+
+    form.addEventListener('submit', async function (evento) {
+        evento.preventDefault();
+        caixa.style.display = 'none';
+
+        const errosLocais = validarLocal();
+        if (errosLocais.length) {
+            mostrar('erro', 'Corrija os itens abaixo:', errosLocais);
+            return;
+        }
+
+        botao.disabled = true;
+        botao.textContent = 'Enviando...';
+
+        try {
+            const resposta = await fetch('/api/candidaturas', {
+                method: 'POST',
+                body: new FormData(form)
+            });
+
+            const corpo = await resposta.json().catch(function () { return {}; });
+
+            if (resposta.status === 201) {
+                mostrar('sucesso', 'Candidatura enviada com sucesso! Protocolo nº ' + corpo.id + '.');
+                form.reset();
+            } else if (resposta.status === 400) {
+                mostrar('erro', 'Não foi possível enviar. Corrija os itens abaixo:', corpo.erros);
+            } else {
+                mostrar('erro', 'Ocorreu um erro no servidor. Tente novamente em instantes.');
+            }
+        } catch (erro) {
+            mostrar('erro', 'Não foi possível conectar ao servidor. Verifique sua conexão e tente novamente.');
+        } finally {
+            botao.disabled = false;
+            botao.textContent = 'Enviar Candidatura';
+        }
+    });
+</script>
+
+</body>
+</html>
